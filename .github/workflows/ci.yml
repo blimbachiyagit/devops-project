@@ -14,10 +14,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+        run: echo "dckr_pat__4TcZfzpBRIkULIFpd1bhssExQ8" | docker login -u blimbachiyadocker --password-stdin
 
       - name: Build Docker Image
         run: docker build -t blimbachiyadocker/devops-node-app:latest .
